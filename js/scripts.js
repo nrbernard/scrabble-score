@@ -1,28 +1,42 @@
 var scrabble = function(word) {
-  var sum = 0;
-  //var scores = { a: 1, b: 3, c: 3, d: 2, e: 1, f: 4, g: 2, h: 4, i: 1, j: 8, k: 5, l: 1, m: 3, n: 1, o: 1, p: 3, q: 10, r: 1, s: 1, t: 1, w: 4, x: 8, y: 4, z: 10 };
-
   var a = { letter: "a", score: 1 };
-  //var c = { letter: "c", socre: 3 };
+  var b = { letter: "b", score: 3 };
+  var c = { letter: "c", score: 3 };
+  var d = { letter: "d", score: 2 };
+  var e = { letter: "e", score: 1 };
+  var f = { letter: "f", score: 4 };
+  var g = { letter: "g", score: 2 };
+  var h = { letter: "h", score: 4 };
+  var i = { letter: "i", score: 1 };
+  var j = { letter: "j", score: 8 };
+  var k = { letter: "k", score: 5 };
+  var l = { letter: "l", score: 1 };
+  var m = { letter: "m", score: 3 };
+  var n = { letter: "n", score: 1 };
+  var o = { letter: "o", score: 1 };
+  var p = { letter: "p", score: 3 };
+  var q = { letter: "q", score: 10 };
+  var r = { letter: "r", score: 1 };
+  var s = { letter: "s", score: 1 };
+  var t = { letter: "t", score: 1 };
+  var u = { letter: "u", score: 1 };
+  var v = { letter: "v", score: 4 };
+  var w = { letter: "w", score: 4 };
+  var x = { letter: "x", score: 8 };
+  var y = { letter: "y", score: 4 };
+  var z = { letter: "z", score: 10 };
 
-  // var score1 = { score: 1, letters: ["a","e","i","o","u","l","n","r","s","t"] };
-  // var score2 = { score: 2, letters: ["d","g"] };
-  // var score3 = { score: 3, letters: ["b","c","m","p"] };
-  // var score4 = { score: 4, letters: ["f","h","v","w","y"] };
-  // var score5 = { score: 5, letters: ["k"] };
-  // var score8 = { score: 8, letters: ["j","x"] };
-  // var score10 = { score: 10, letters: ["q","z"] };
+  var letters = [ a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z ];
 
-  var letters = [a];
-
-  var scrabbleScore = function(letter) {
-    sum = sum + letter.score;
-    console.log("scrabbleScore: " + sum);
-  };
+  var score = 0;
 
   letters.forEach(function(letter) {
-    scrabbleScore(letter);
+    for (var i = 0; i < word.length; i++) {
+      if (letter.letter === word[i]) {
+        score = score + letter.score;
+      }
+    };
   });
 
-  return sum;
+  return score;
 }
