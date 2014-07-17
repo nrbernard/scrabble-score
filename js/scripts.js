@@ -43,11 +43,7 @@ var scrabble = function(word) {
     });
   };
 
-  if ( score === 0 ) {
-    alert("You've got to give me a word!");
-  } else {
-    return score;
-  }
+  return score;
 }
 
 $(document).ready(function() {
@@ -64,7 +60,6 @@ $(document).ready(function() {
       for (var i = 0; i < word.length; i++) {
         $(".tiles").append("<li class='tile'>" + "<span class='letter'>" + word[i] + "</span>" + "<span class='value'>" + displayValue[i] + "</span>" + "</li>");
       };
-
       $(".word").text(word);
       $(".score").text(score);
       $("#result").show();
