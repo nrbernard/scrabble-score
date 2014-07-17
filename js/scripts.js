@@ -27,8 +27,10 @@ var scrabble = function(word) {
   var z = { letter: "z", score: 10 };
 
   var letters = [ a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z ];
-  
+
   var score = 0;
+
+  word = word.toLowerCase();
 
   for (var i = 0; i < word.length; i++) {
     letters.forEach(function(letter) {
