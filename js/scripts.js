@@ -1,3 +1,5 @@
+var displayValue = [];
+
 var scrabble = function(word) {
   var a = { letter: "a", score: 1 };
   var b = { letter: "b", score: 3 };
@@ -36,23 +38,39 @@ var scrabble = function(word) {
     letters.forEach(function(letter) {
       if (letter.letter === word[i]) {
         score = score + letter.score;
-        console.log(score);
+        displayValue.push(letter.score);
       }
     });
   };
 
-  return score;
+  if ( score === 0 ) {
+    alert("You've got to give me a word!");
+  } else {
+    return score;
+  }
 }
 
 $(document).ready(function() {
   $("form#scrabble").submit(function(event) {
+    $(".tiles").empty();
+    $("#result").hide();
+
     var word = $("input#input-word").val();
     var score = scrabble(word);
 
-    $(".word").text(word);
-    $(".score").text(score);
+    if (score === 0) {
+      alert("You've got to give me a word!");
+    } else {
+      for (var i = 0; i < word.length; i++) {
+        $(".tiles").append("<li class='tile'>" + "<span class='letter'>" + word[i] + "</span>" + "<span class='value'>" + displayValue[i] + "</span>" + "</li>");
+      };
 
-    $("#result").show();
+      $(".word").text(word);
+      $(".score").text(score);
+      $("#result").show();
+    }
+
+    $("input#input-word").val("");
     event.preventDefault();
   });
 });
