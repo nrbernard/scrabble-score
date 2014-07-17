@@ -14,4 +14,8 @@ describe("scrabble", function () {
 	it("calculates the score for a word with mixed characters", function () {
 		scrabble("ePiCOdus").should.equal(13);
 	});
+
+	it("returns a score of 0 for a blank input", function () {
+		scrabble("").should.equal(0);
+	});
 });

@@ -44,3 +44,15 @@ var scrabble = function(word) {
   return score;
 }
 
+$(document).ready(function() {
+  $("form#scrabble").submit(function(event) {
+    var word = $("input#input-word").val();
+    var score = scrabble(word);
+
+    $(".word").text(word);
+    $(".score").text(score);
+
+    $("#result").show();
+    event.preventDefault();
+  });
+});
